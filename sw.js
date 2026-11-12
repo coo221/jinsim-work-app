@@ -1,6 +1,6 @@
 
-const CACHE='jinsim-live-phone-541c73c6a660f433';
-const FILES=["index.html","manifest.webmanifest","icons/icon-192.png","icons/icon-512.png","icons/apple-touch-icon.png","assets/index-BqeKdtEP.js","assets/index-D7fdxE-A.css"].map(name=>new URL(name,self.registration.scope).href);
+const CACHE='jinsim-live-phone-d993e7440cf48417';
+const FILES=["index.html","manifest.webmanifest","icons/icon-192.png","icons/icon-512.png","icons/apple-touch-icon.png","assets/index-CQSgrZlD.js","assets/index-Bcwixx62.css"].map(name=>new URL(name,self.registration.scope).href);
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('jinsim-live-phone-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('message',event=>{if(event.data==='ACTIVATE_PHONE_UPDATE')self.skipWaiting();});
